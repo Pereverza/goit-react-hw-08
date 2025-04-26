@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import css from "./ContactForm.module.css";
+import s from "../ContactForm/ContactForm.module.css";
 import { toast } from "react-toastify";
-import { selectContacts } from "../../redux/selectors";
+import { selectContacts } from "../../redux/contacts/selectors";
 
 const initialValues = {
   name: "",
@@ -41,20 +42,20 @@ function ContactForm() {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form className={css.form}>
-        <label className={css.label}>
+      <Form className={s.form}>
+        <label className={s.label}>
           Name
-          <Field className={css.input} type="text" name="name" />
-          <ErrorMessage name="name" component="div" className={css.error} />
+          <Field className={s.input} type="text" name="name" />
+          <ErrorMessage name="name" component="div" className={s.error} />
         </label>
 
-        <label className={css.label}>
+        <label className={s.label}>
           Number
-          <Field className={css.input} type="tel" name="number" />
-          <ErrorMessage name="number" component="div" className={css.error} />
+          <Field className={s.input} type="tel" name="number" />
+          <ErrorMessage name="number" component="div" className={s.error} />
         </label>
 
-        <button type="submit" className={css.button}>
+        <button type="submit" className={s.button}>
           Add contact
         </button>
       </Form>

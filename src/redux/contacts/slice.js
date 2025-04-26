@@ -1,5 +1,5 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./contactsOps";
+import { fetchContacts, addContact, deleteContact } from "./operations";
 
 export const selectContacts = (state) => state.contacts.items;
 export const selectLoading = (state) => state.contacts.isLoading;

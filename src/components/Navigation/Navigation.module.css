@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  gap: 16px; /* Додаємо відступ */
+  align-items: center;
+}
+
+.link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  background: linear-gradient(#0c221d, #115748);
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  background: linear-gradient(#18233e, #1ed760);
+  box-shadow: 0 0 8px hsl(167, 67%, 20%);
+}

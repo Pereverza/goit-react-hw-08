@@ -1,6 +1,8 @@
 body {
-  background-color: rgb(242, 239, 235);
-  color: #131111;
+  margin: 0;
+  padding: 0;
+  background-color: #1d3c48;
+  color: #f0f0f0;
   line-height: 1.5;
-  padding: 20px;
+  min-height: 100vh;
 }
