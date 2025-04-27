@@ -1,9 +1,5 @@
-import css from "./HomePage.module.css";
+import s from "../../App.module.css";
 
 export default function HomePage() {
-  return (
-    <div className={css.wrapper}>
-      <h1>Welcome to the Contact Book App!</h1>
-    </div>
-  );
+  return <h1 className={s.title}>Welcome to the Contact Book App!</h1>;
 }

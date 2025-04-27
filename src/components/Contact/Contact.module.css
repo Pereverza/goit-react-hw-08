@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-
   width: 220px;
   height: 160px;
   padding: 12px;
@@ -12,6 +11,7 @@
   background-color: #ede9df;
   box-sizing: border-box;
 }
+
 .button {
   margin-top: auto;
   padding: 8px 16px;

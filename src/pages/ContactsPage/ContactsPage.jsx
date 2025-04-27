@@ -15,7 +15,6 @@ export default function ContactsPage() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       <ContactList />

@@ -3,7 +3,8 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../redux/auth/operations";
-import s from "./RegistrationForm.module.css";
+import s from "../../App.module.css";
+import { toast } from "react-toastify";
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string().min(2, "Too short").required("Name is required"),
@@ -25,7 +26,7 @@ export default function RegistrationForm() {
         navigate("/contacts");
       })
       .catch((error) => {
-        alert(`Registration failed: ${error}`);
+        toast.error(`Registration failed: ${error}`);
       });
   };
 
@@ -36,25 +37,38 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
     >
       <Form className={s.form}>
-        <label>
-          Name:
-          <Field type="text" name="name" />
+        <div className={s.fieldWrapper}>
+          <label htmlFor="name" className={s.label}>
+            Name:
+          </label>
+          <Field id="name" className={s.input} type="text" name="name" />
           <ErrorMessage name="name" component="div" className={s.error} />
-        </label>
+        </div>
 
-        <label>
-          Email:
-          <Field type="email" name="email" />
+        <div className={s.fieldWrapper}>
+          <label htmlFor="email" className={s.label}>
+            Email:
+          </label>
+          <Field id="email" className={s.input} type="email" name="email" />
           <ErrorMessage name="email" component="div" className={s.error} />
-        </label>
+        </div>
 
-        <label>
-          Password:
-          <Field type="password" name="password" />
+        <div className={s.fieldWrapper}>
+          <label htmlFor="password" className={s.label}>
+            Password:
+          </label>
+          <Field
+            id="password"
+            className={s.input}
+            type="password"
+            name="password"
+          />
           <ErrorMessage name="password" component="div" className={s.error} />
-        </label>
+        </div>
 
-        <button type="submit">Register</button>
+        <button type="submit" className={s.button}>
+          Register
+        </button>
       </Form>
     </Formik>
   );

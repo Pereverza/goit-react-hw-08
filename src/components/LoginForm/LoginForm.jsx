@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/auth/operations";
-import s from "./LoginForm.module.css";
+import s from "../../App.module.css";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -35,19 +35,30 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
     >
       <Form className={s.form}>
-        <label>
-          Email:
-          <Field type="email" name="email" />
+        <div className={s.fieldWrapper}>
+          <label htmlFor="email" className={s.label}>
+            Email:
+          </label>
+          <Field id="email" name="email" type="email" className={s.input} />
           <ErrorMessage name="email" component="div" className={s.error} />
-        </label>
+        </div>
 
-        <label>
-          Password:
-          <Field type="password" name="password" />
+        <div className={s.fieldWrapper}>
+          <label htmlFor="password" className={s.label}>
+            Password:
+          </label>
+          <Field
+            id="password"
+            name="password"
+            type="password"
+            className={s.input}
+          />
           <ErrorMessage name="password" component="div" className={s.error} />
-        </label>
+        </div>
 
-        <button type="submit">Log In</button>
+        <button type="submit" className={s.button}>
+          Register
+        </button>
       </Form>
     </Formik>
   );
