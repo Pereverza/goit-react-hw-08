@@ -2,11 +2,19 @@ import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 import s from "../../App.module.css";
 
+import { toast } from "react-toastify";
 export default function Contact({ contact }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(contact.id));
+    dispatch(deleteContact(contact.id))
+      .unwrap()
+      .then(() => {
+        toast.success(`Contact "${contact.name}" deleted successfully!`);
+      })
+      .catch(() => {
+        toast.error("Failed to delete contact");
+      });
   };
 
   return (

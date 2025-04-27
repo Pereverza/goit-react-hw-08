@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/auth/operations";
 import s from "../../App.module.css";
+import { toast } from "react-toastify";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -24,7 +25,7 @@ export default function LoginForm() {
         navigate("/contacts");
       })
       .catch((error) => {
-        alert(`Login failed: ${error}`);
+        toast(`Login failed: ${error}`);
       });
   };
 
